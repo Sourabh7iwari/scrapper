@@ -6,7 +6,6 @@ load_dotenv()
 
 class DatabaseManager:
     def __init__(self):
-        # Database connection settings; load these from environment variables or config file
         self.connection = psycopg2.connect(
             dbname="linkedin_scraper",
             user="postgres",
@@ -18,7 +17,6 @@ class DatabaseManager:
         self.cursor = self.connection.cursor()
 
     def insert_post(self, post_data):
-        """Insert a single LinkedIn post into the database."""
         insert_query = """
         INSERT INTO linkedin_posts (profile_url, content, date, media_type, likes, comments)
         VALUES (%s, %s, %s, %s, %s, %s);

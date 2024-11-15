@@ -6,7 +6,7 @@ class QueueManager:
         # Initialize Redis connection
         self.redis_conn = redis.StrictRedis(host=redis_host, port=redis_port, db=db, decode_responses=True)
         self.queue_name = "linkedin_profile_queue"
-        self.processed_set = "processed_profiles"  # Track processed URLs
+        self.processed_set = "processed_profiles" 
 
     def enqueue_url(self, url):
         """Add a new URL to the queue if it hasn't been processed."""
